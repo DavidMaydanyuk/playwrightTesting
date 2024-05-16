@@ -27,3 +27,22 @@
     //   },
     // },
     ```
+
+    ## Playwright snippets
+- import:
+    ```typescript
+    import { test, expect } from '@playwright/test';
+    ```
+- test:
+    ```typescript
+    test('test description', async ({ page }) => {
+    
+    });
+    ```
+- describe:
+    ```typescript
+     test.describe('Group description', () => {
+
+     });
+    ```
+- running given test: `test.only`
