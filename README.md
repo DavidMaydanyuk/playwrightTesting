@@ -46,3 +46,18 @@
      });
     ```
 - running given test: `test.only`
+
+ ## Playwright scripts for console
+ 
+- test:  
+"npx playwright test",   
+- test:headed:  
+"npx playwright test --headed",
+- test:pulpit:  
+"npm run test tests/pulpit.spec.ts",
+- test:pulpit:headed:  
+"npm run test tests/pulpit.spec.ts -- --headed",
+- test:login:  
+"npm run test tests/login.spec.ts",
+- test:login:headed:  
+"npm run test tests/login.spec.ts -- --headed"  
