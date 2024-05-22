@@ -26,5 +26,7 @@ test.describe("Payment tests", () => {
     await page.getByTestId("close-button").click();
 
     await expect(page.locator("#show_messages")).toHaveText(expectedMessage);
+
+    
   });
 });
