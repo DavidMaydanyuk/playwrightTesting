@@ -29,7 +29,7 @@ test.describe("Pulpit tests", () => {
     await pulpitPage.transferAmount.fill(transferAmount);
     await pulpitPage.transferTitle.fill(transferTitle);
 
-    await pulpitPage.paymentButton.click();
+    await pulpitPage.transferButton.click();
     await pulpitPage.closeButton.click();
 
     // Assert
