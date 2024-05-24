@@ -14,4 +14,17 @@ export class PaymentPage {
   closeButton = this.page.getByTestId("close-button");
 
   expectedMassage = this.page.locator("#show_messages");
+
+  async makeTransfer(
+    transferReciver: string,
+    transferAccaunt: string,
+    transferAmount: string
+  ): Promise<void> {
+    await this.transferReceiver.fill(transferReciver);
+    await this.accountForm.fill(transferAccaunt);
+    await this.amountForm.fill(transferAmount);
+
+    await this.transferButton.click();
+    await this.closeButton.click();
+  }
 }

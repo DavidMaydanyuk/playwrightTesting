@@ -22,4 +22,26 @@ export class PulpitPage {
 
   moneyValue = this.page.locator("#money_value");
   userName = this.page.getByTestId("user-name");
+
+  async quickTransfer(
+    reciverId: string,
+    transferAmount: string,
+    transferTitle: string
+  ): Promise<void> {
+    await this.transferReciver.selectOption(reciverId);
+    await this.transferAmount.fill(transferAmount);
+    await this.transferTitle.fill(transferTitle);
+
+    await this.transferButton.click();
+    await this.closeButton.click();
+  }
+
+  async topUp(topUpReciver: string, topUpAmount: string): Promise<void> {
+    await this.topupReciver.selectOption(topUpReciver);
+    await this.topupAmount.fill(topUpAmount);
+    await this.topupAgreement.click();
+
+    await this.topupButton.click();
+    await this.closeButton.click();
+  }
 }

@@ -10,11 +10,11 @@ test.describe("Payment tests", () => {
   test.beforeEach(async ({ page }) => {
     const userId = loginData.userId;
     const userPassword = loginData.userPassword;
-    
+
     await page.goto("/");
     const loginPage = new LoginPage(page);
     await loginPage.login(userId, userPassword);
-    
+
     const pulpitPage = new PulpitPage(page);
     await pulpitPage.sideMenu.paymentButton.click(); //reuseble component from side-menu.component
 
@@ -27,11 +27,11 @@ test.describe("Payment tests", () => {
     const transferAmount = simplePaymentData.transferAmount;
     const expectedMessage = `Przelew wykonany! ${transferAmount},00PLN dla ${transferReciver}`;
 
-    await paymentPage.transferReceiver.fill(transferReciver);
-    await paymentPage.accountForm.fill(transferAccaunt);
-    await paymentPage.amountForm.fill(transferAmount);
-    await paymentPage.transferButton.click();
-    await paymentPage.closeButton.click();
+    await paymentPage.makeTransfer(
+      transferReciver,
+      transferAccaunt,
+      transferAmount
+    );
 
     await expect(paymentPage.expectedMassage).toHaveText(expectedMessage);
   });
